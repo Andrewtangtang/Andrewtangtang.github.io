@@ -6,11 +6,10 @@ import "./globals.css";
 export const metadata: Metadata = {
   metadataBase: new URL("https://andrewtangtang.github.io"),
   title: {
-    default: "Yun-Tang Chang — Systems, Data & Infrastructure",
+    default: "Yun-Tang Chang",
     template: "%s — Yun-Tang Chang",
   },
-  description:
-    "Systems researcher and software engineer working across data infrastructure, secure systems, and open source.",
+  description: "Research and engineering portfolio by Yun-Tang Chang.",
   openGraph: {
     type: "website",
     title: "Yun-Tang Chang",
