@@ -4,9 +4,7 @@ import { Arrow, ProjectRow, SectionHeading } from "./components";
 import { projects } from "./site-data";
 
 export const metadata: Metadata = {
-  title: "Yun-Tang Chang — Systems, Data & Infrastructure",
-  description:
-    "Systems researcher and software engineer working across data infrastructure, secure systems, and open source.",
+  description: "Research and engineering portfolio by Yun-Tang Chang.",
 };
 
 export default function Home() {
