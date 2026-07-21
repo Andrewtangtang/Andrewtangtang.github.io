@@ -67,9 +67,24 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
   const post = getPost(slug);
-  return post
-    ? { title: post.title, description: post.description }
-    : { title: "Writing" };
+  if (!post) return { title: "Writing" };
+
+  const metadata: Metadata = { title: post.title, description: post.description };
+  if (post.socialImage) {
+    metadata.openGraph = {
+      type: "article",
+      title: post.title,
+      description: post.description,
+      images: [post.socialImage],
+    };
+    metadata.twitter = {
+      card: "summary_large_image",
+      title: post.title,
+      description: post.description,
+      images: [post.socialImage],
+    };
+  }
+  return metadata;
 }
 
 export default async function WritingPostPage({ params }: { params: Promise<{ slug: string }> }) {

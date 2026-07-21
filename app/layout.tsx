@@ -14,14 +14,10 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     title: "Yun-Tang Chang",
-    description: "Systems · Data · Infrastructure",
-    images: [{ url: "/og.png", width: 1731, height: 909, alt: "Yun-Tang Chang — Systems, Data, Infrastructure" }],
   },
   twitter: {
-    card: "summary_large_image",
+    card: "summary",
     title: "Yun-Tang Chang",
-    description: "Systems · Data · Infrastructure",
-    images: ["/og.png"],
   },
 };
 

@@ -14,6 +14,7 @@ export type WritingPost = {
   repositoryDescription?: string;
   heroImage?: string;
   heroImageAlt?: string;
+  socialImage?: string;
   content: string;
 };
 
@@ -63,6 +64,7 @@ export const posts: WritingPost[] = sources.map(([slug, source]) => {
     repositoryDescription: parsed.data.repositoryDescription ? String(parsed.data.repositoryDescription) : undefined,
     heroImage: parsed.data.heroImage ? String(parsed.data.heroImage) : undefined,
     heroImageAlt: parsed.data.heroImageAlt ? String(parsed.data.heroImageAlt) : undefined,
+    socialImage: parsed.data.socialImage ? String(parsed.data.socialImage) : undefined,
     content: parsed.content,
   };
 });

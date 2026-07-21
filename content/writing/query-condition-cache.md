@@ -14,6 +14,7 @@ repositoryImage: "/writing/query-condition-cache/img/cache_representation.png"
 repositoryDescription: "An open-source DuckDB extension that caches predicate matches to accelerate recurring filtered queries."
 heroImage: "/writing/query-condition-cache/img/duckdb_mark.jpg"
 heroImageAlt: "DuckDB mark"
+socialImage: "/writing/query-condition-cache/img/cache_representation.png"
 ---
 
 TL;DR: We built `query_condition_cache`, an open-source DuckDB extension that accelerates recurring filtered queries by caching where a predicate may match. When the same predicate appears again, DuckDB can skip table regions already proven empty before accessing their data blocks. That matters because storage I/O often dominates analytical query latency, and at cloud scale, repeatedly reading unnecessary blocks can become a substantial part of the cost of serving queries. Even when the data is already in memory, the cache reduces data movement, decompression, decoding, and repeated predicate evaluation. Its compact, query-driven design is well-suited for repetitive analytical workloads such as monitoring dashboards, log investigation, and recurring read paths.
