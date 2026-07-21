@@ -10,6 +10,8 @@ export type Project = {
   imageFit?: "cover" | "contain";
   imageHref?: string;
   linkLabel?: string;
+  blogHref?: string;
+  blogLinkLabel?: string;
 };
 
 export type Experience = {
@@ -67,7 +69,7 @@ export const experiences: Experience[] = [
     role: "Backend Software Engineer",
     org: "NCKU Office of International Affairs",
     track: "work",
-    focus: "Agentic systems · Retrieval · Redis",
+    focus: "Agentic systems · Redis",
     detail: "Built an agentic assistant backend serving 500+ students, including an MCP retrieval server, FAISS semantic caching, and Redis-coordinated workers.",
     bullets: [
       "Built the backend for an agentic assistant serving 500+ students, with a custom MCP server for document retrieval.",
@@ -109,7 +111,7 @@ export const awards: Award[] = [
     role: "1st Place, Student Track",
     location: "Taipei, Taiwan",
     detail: "Built dMart, a decentralized fundraising platform on Solana that uses Chainlink oracles to automatically trigger fund releases when on-chain conditions are met, speeding up fundraising and cutting manual management overhead.",
-    stack: ["React", "Solana", "Chainlink Automation"],
+    stack: ["React", "Solana", "Chainlink automation"],
     image: "/blockchain.png",
     imageFit: "contain",
   },
@@ -141,6 +143,8 @@ export const projects: Project[] = [
     metrics: ["Up to 3.2× faster on HDFS_v2", "Filter-pruning path integration"],
     tags: ["C++", "DuckDB", "Data"],
     href: "https://duckdb.org/community_extensions/extensions/query_condition_cache",
+    blogHref: "/writing/query-condition-cache",
+    blogLinkLabel: "View blog",
     image: "/writing/query-condition-cache/img/cache_representation.png",
     imageAlt: "Query Condition Cache bitmap layout",
     imageFit: "contain",

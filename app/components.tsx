@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ImageLightbox } from "./ImageLightbox";
 import type { Project } from "./site-data";
 
 export function Arrow() {
@@ -60,19 +61,20 @@ export function SectionHeading({ index, title, href, linkLabel }: { index?: stri
 }
 
 export function ProjectRow({ project, showMetrics = true }: { project: Project; showMetrics?: boolean }) {
+  const imageAlt = project.imageAlt ?? `${project.title} preview`;
+
   return (
     <article className="project-row">
       <div className="project-row-meta">
         <p className="project-row-type">{project.type}</p>
         <div className="project-row-media">
           {project.image ? (
-            project.imageHref ? (
-              <a className="project-row-media-link" href={project.imageHref} target="_blank" rel="noreferrer" aria-label={`Open ${project.title} architecture diagram PDF`}>
-                <img className={project.imageFit === "contain" ? "project-row-image-contain" : ""} src={project.image} alt={project.imageAlt ?? `${project.title} preview`} />
-              </a>
-            ) : (
-              <img className={project.imageFit === "contain" ? "project-row-image-contain" : ""} src={project.image} alt={project.imageAlt ?? `${project.title} preview`} />
-            )
+            <ImageLightbox
+              src={project.image}
+              alt={imageAlt}
+              contain={project.imageFit === "contain"}
+              title={project.title}
+            />
           ) : (
             <span>{project.type}</span>
           )}
@@ -91,6 +93,11 @@ export function ProjectRow({ project, showMetrics = true }: { project: Project; 
           >
             {project.linkLabel ?? "View project"} <Arrow />
           </a>
+          {project.blogHref ? (
+            <Link href={project.blogHref}>
+              {project.blogLinkLabel ?? "View blog"} <Arrow />
+            </Link>
+          ) : null}
         </div>
       </div>
     </article>

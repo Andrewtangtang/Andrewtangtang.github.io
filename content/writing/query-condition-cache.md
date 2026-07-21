@@ -119,7 +119,8 @@ the same cache entry despite their different syntax.
 
 This is structural canonicalization rather than general logical equivalence.
 Predicates involving rewrites we do not recognize may produce separate cache
-entries, reducing reuse without changing the query result. In v1, this reuse
+entries, reducing reuse without changing the query result. In the current
+implementation, this reuse
 is intended for deterministic predicates whose results remain stable for
 unchanged rows. A future version could introduce a stronger predicate-
 equivalence checker, potentially by reusing more of DuckDB's expression-
@@ -264,7 +265,8 @@ and looks up the cache using `(table OID, canonical predicate)` as the key.
 
 #### 2. Build the Entry on a Miss
 
-On a miss, v1 performs a synchronous parallel scan to construct the entry. The
+On a cache miss, the current implementation performs a synchronous parallel
+scan to construct the entry. The
 build creates a narrow scan containing only the physical columns referenced by
 the predicate and DuckDB's virtual `ROW_ID` column. `ROW_ID` is not stored with
 each physical column; DuckDB generates it during the scan to identify the

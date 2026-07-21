@@ -28,7 +28,10 @@ test("renders projects and writing routes", async () => {
   assert.match(projects, /moonlink\.png/);
   assert.match(projects, /duckdb_mark\.jpg/);
   assert.match(projects, /cache_representation\.png/);
-  assert.match(projects, /table-inspector-architecture\.pdf/);
+  assert.match(projects, /Enlarge Query Condition Cache image/);
+  assert.match(projects, /Enlarge Table Inspector image/);
+  assert.match(projects, /image-lightbox/);
+  assert.match(projects, /View blog/);
   assert.match(projects, /DuckDB is an analytical in-process SQL database management system/);
   assert.match(projects, /https:\/\/www\.duckdb\.org\//);
   assert.match(projects, /Moonlink is an Iceberg-native ingestion engine/);

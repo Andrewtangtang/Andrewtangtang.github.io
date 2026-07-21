@@ -59,13 +59,13 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         {children}
         <footer className="site-footer">
           <div className="shell footer-grid">
-            <div><strong>Yun-Tang Chang</strong><span>Systems · Data · Infrastructure</span></div>
+            <div><strong>Yun-Tang Chang</strong></div>
             <div className="footer-links">
               <a href="mailto:candrew9213@gmail.com">Email</a>
               <a href="https://github.com/Andrewtangtang" target="_blank" rel="noreferrer">GitHub</a>
               <a href="https://www.linkedin.com/in/yun-tang-chang/" target="_blank" rel="noreferrer">LinkedIn</a>
             </div>
-            <p>Toronto ↔ Taiwan<br />© {new Date().getFullYear()}</p>
+            <p>© {new Date().getFullYear()}</p>
           </div>
         </footer>
       </body>
