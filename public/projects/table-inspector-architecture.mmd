@@ -1,0 +1,25 @@
+%%{init: {
+  "theme": "base",
+  "themeVariables": {
+    "fontFamily": "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace",
+    "primaryColor": "#fbf8f1",
+    "primaryTextColor": "#153f36",
+    "primaryBorderColor": "#245f50",
+    "lineColor": "#b7643e",
+    "secondaryColor": "#eef1ea",
+    "tertiaryColor": "#f4f0e7"
+  },
+  "flowchart": {
+    "curve": "basis",
+    "nodeSpacing": 28,
+    "rankSpacing": 54
+  }
+}}%%
+flowchart TB
+    U[DuckDB user] -->|SQL table function| E[Extension function]
+    E --> C[Catalog<br/>and schemas]
+    E --> S[Storage<br/>manager]
+    E --> I[Table / index<br/>internals]
+    C --> R[DataChunk result<br/>returned to SQL]
+    S --> R
+    I --> R
