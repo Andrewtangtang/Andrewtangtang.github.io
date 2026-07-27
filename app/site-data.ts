@@ -140,7 +140,7 @@ export const projects: Project[] = [
     title: "Query Condition Cache",
     type: "DuckDB extension",
     description: "A predicate cache in DuckDB’s filter-pruning path that skips decompression of non-qualifying blocks for repeated analytical queries.",
-    metrics: ["Up to 3.2× faster on HDFS_v2", "Filter-pruning path integration"],
+    metrics: ["13.8× faster on HDFS_v2", "Filter-pruning path integration"],
     tags: ["C++", "DuckDB", "Data"],
     href: "https://duckdb.org/community_extensions/extensions/query_condition_cache",
     blogHref: "/writing/query-condition-cache",
