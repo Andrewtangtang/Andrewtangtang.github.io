@@ -94,7 +94,10 @@ export default async function WritingPostPage({ params }: { params: Promise<{ sl
   const outline = extractOutline(post.content);
 
   return (
-    <main>
+    <main className="post-page">
+      <div className="post-return shell">
+        <Link href="/writing"><span className="post-return-arrow" aria-hidden="true">←</span> All writing</Link>
+      </div>
       <header className={`post-hero shell${post.heroImage ? " post-hero--with-image" : ""}`}>
         <div className="post-hero-content">
           <div className="post-kicker">{post.tags.join(" · ")}</div>
