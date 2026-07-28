@@ -547,3 +547,7 @@ Our roadmap also includes:
 - Probe-side join bitmask caching
 
 Follow [Yun-Tang Chang](https://github.com/Andrewtangtang) and [Hao Jiang](https://github.com/dentiny) for more open-source DuckDB extensions.
+
+## References
+
+- [Predicate Caching: Query-Driven Secondary Indexing for Cloud Data Warehouses](https://dl.acm.org/doi/10.1145/3626246.3653395)
