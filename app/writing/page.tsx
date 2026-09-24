@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { posts } from "./posts";
 
-export const metadata: Metadata = { title: "Writing", description: "Field notes on systems, databases, infrastructure, and open-source engineering." };
+export const metadata: Metadata = { title: "Writing", description: "Field notes on systems, databases, infrastructure, and open-source engineering.", alternates: { canonical: "/writing/" } };
 
 export default function WritingPage() {
   return (

@@ -5,6 +5,7 @@ import { projects } from "./site-data";
 
 export const metadata: Metadata = {
   description: "Research and engineering portfolio by Yun-Tang Chang.",
+  alternates: { canonical: "/" },
 };
 
 export default function Home() {

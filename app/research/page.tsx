@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { experiences } from "../site-data";
 
-export const metadata: Metadata = { title: "Research", description: "Research interests and ongoing work in operating systems, database systems, and data streaming systems." };
+export const metadata: Metadata = { title: "Research", description: "Research interests and ongoing work in operating systems, database systems, and data streaming systems.", alternates: { canonical: "/research/" } };
 
 export default function ResearchPage() {
   const publications = experiences

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { ProjectRow, SectionHeading } from "../components";
 import { projects } from "../site-data";
 
-export const metadata: Metadata = { title: "Projects", description: "Open-source, systems, and data infrastructure projects by Yun-Tang Chang." };
+export const metadata: Metadata = { title: "Projects", description: "Open-source, systems, and data infrastructure projects by Yun-Tang Chang.", alternates: { canonical: "/projects/" } };
 
 export default function ProjectsPage() {
   const selectedTitles = new Set(["Query Condition Cache", "Table Inspector"]);

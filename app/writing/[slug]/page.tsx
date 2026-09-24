@@ -69,7 +69,11 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const post = getPost(slug);
   if (!post) return { title: "Writing" };
 
-  const metadata: Metadata = { title: post.title, description: post.description };
+  const metadata: Metadata = {
+    title: post.title,
+    description: post.description,
+    alternates: { canonical: `/writing/${post.slug}/` },
+  };
   if (post.socialImage) {
     metadata.openGraph = {
       type: "article",

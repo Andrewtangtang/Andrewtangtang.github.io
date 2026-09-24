@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Arrow } from "../components";
 import { awards, experiences } from "../site-data";
 
-export const metadata: Metadata = { title: "Experience", description: "Research and engineering experience across systems, data, and infrastructure." };
+export const metadata: Metadata = { title: "Experience", description: "Research and engineering experience across systems, data, and infrastructure.", alternates: { canonical: "/experience/" } };
 
 export default function ExperiencePage() {
   const research = experiences.filter((experience) => experience.track === "research");
