@@ -10,6 +10,7 @@ export const metadata: Metadata = {
     template: "%s — Yun-Tang Chang",
   },
   description: "Research and engineering portfolio by Yun-Tang Chang.",
+  verification: { google: "haewJpRk17UbgBSRGS3VYFPk-PmV4z1pRcZPLV8DkeY" },
   openGraph: {
     type: "website",
     title: "Yun-Tang Chang",
