@@ -98,6 +98,9 @@ export function ProjectRow({ project, showMetrics = true }: { project: Project; 
               {project.blogLinkLabel ?? "View blog"} <Arrow />
             </Link>
           ) : null}
+          {project.pullRequestsHref ? (
+            <a href={project.pullRequestsHref}>View PRs <Arrow /></a>
+          ) : null}
         </div>
       </div>
     </article>

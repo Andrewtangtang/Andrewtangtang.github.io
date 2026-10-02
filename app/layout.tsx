@@ -34,9 +34,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       <body>
         <header className="site-header">
           <div className="shell nav-wrap">
-            <Link className="wordmark" href="/" aria-label="Yun-Tang, Chang, home">
-              <span>Yun-Tang</span>, Chang
-            </Link>
+            <Link className="wordmark" href="/" aria-label="Yun-Tang Andrew Chang, home">Yun-Tang(Andrew), Chang</Link>
             <nav className="desktop-nav" aria-label="Main navigation">
               {navItems.map(([label, href]) => <Link key={href} href={href}>{label}</Link>)}
               <a className="nav-cv" href="/cv.pdf" target="_blank">CV ↗</a>

@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import test from "node:test";
+import { getClosedPullRequests } from "../app/pull-requests/github.ts";
 
 async function render(path = "/") {
   const normalized = path === "/" ? "index.html" : `${path.replace(/^\//, "").replace(/\/$/, "")}/index.html`;
@@ -9,9 +10,10 @@ async function render(path = "/") {
 
 test("renders Yun-Tang's portfolio homepage", async () => {
   const html = await render();
-  assert.match(html, /YUN-TANG/);
+  assert.match(html, /Yun-Tang Chang/);
   assert.match(html, /\(Andrew\), Chang/);
   assert.match(html, /張昀棠/);
+  assert.match(html, /Research Assistant · Secure System Lab/);
   assert.match(html, /Query Condition Cache/);
   assert.match(html, /Vsock-net: Making Paravirtualized Network I\/Os/);
   assert.doesNotMatch(html, /Up to 3\.2× faster on HDFS_v2/);
@@ -21,9 +23,13 @@ test("renders Yun-Tang's portfolio homepage", async () => {
 
 test("renders projects and writing routes", async () => {
   const projects = await render("/projects");
+  const pullRequests = await render("/pull-requests");
   const writing = await render("/writing");
   const queryConditionCache = await render("/writing/query-condition-cache");
   assert.match(projects, /Selected projects/);
+  assert.match(projects, /View PRs/);
+  assert.doesNotMatch(projects, /Closed PRs/);
+  assert.match(pullRequests, /DuckDB PRs/);
   assert.match(projects, /Moonlink/);
   assert.match(projects, /moonlink\.png/);
   assert.match(projects, /duckdb_mark\.jpg/);
@@ -48,4 +54,30 @@ test("renders projects and writing routes", async () => {
   assert.match(queryConditionCache, /duckdb_mark\.jpg/);
   assert.match(queryConditionCache, /more open-source DuckDB extensions/);
   assert.match(queryConditionCache, /github\.com\/dentiny/);
+});
+
+test("loads every page of closed pull requests", async () => {
+  const originalFetch = globalThis.fetch;
+  const pages = [];
+  globalThis.fetch = async (url) => {
+    const query = new URL(url).searchParams;
+    assert.match(query.get("q"), /repo:duckdb\/duckdb/);
+    const page = Number(query.get("page"));
+    pages.push(page);
+    return {
+      ok: true,
+      json: async () => ({
+        total_count: 101,
+        items: page === 1 ? Array.from({ length: 100 }, (_, id) => ({ id })) : [{ id: 100 }],
+      }),
+    };
+  };
+
+  try {
+    const pullRequests = await getClosedPullRequests();
+    assert.equal(pullRequests.length, 101);
+    assert.deepEqual(pages, [1, 2]);
+  } finally {
+    globalThis.fetch = originalFetch;
+  }
 });

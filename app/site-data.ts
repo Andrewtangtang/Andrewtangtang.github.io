@@ -12,6 +12,7 @@ export type Project = {
   linkLabel?: string;
   blogHref?: string;
   blogLinkLabel?: string;
+  pullRequestsHref?: string;
 };
 
 export type Experience = {
@@ -180,6 +181,7 @@ export const projects: Project[] = [
     metrics: [],
     tags: ["C++", "DuckDB", "Open source"],
     href: "https://www.duckdb.org/",
+    pullRequestsHref: "/pull-requests",
     image: "/writing/query-condition-cache/img/duckdb_mark.jpg",
     imageAlt: "DuckDB mark",
     imageFit: "contain",

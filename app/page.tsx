@@ -13,19 +13,32 @@ export default function Home() {
     <>
       <main>
         <section className="hero shell" aria-labelledby="hero-title">
-          <figure className="hero-portrait reveal">
-            <img
-              src="/personal_image.JPG"
-              alt="Portrait of Andrew Chang"
-              width="1108"
-              height="1477"
-            />
-          </figure>
-          <div className="hero-content">
-            <div className="hero-name reveal reveal-late">
-              <h1 id="hero-title">YUN-TANG<span>(Andrew), Chang</span></h1>
+          <aside className="hero-profile reveal">
+            <figure className="hero-portrait">
+              <img
+                src="/personal_image.JPG"
+                alt="Portrait of Yun-Tang Chang"
+                width="1108"
+                height="1477"
+              />
+            </figure>
+            <div className="hero-name">
+              <h1 id="hero-title">Yun-Tang<br />(Andrew), Chang</h1>
               <p className="chinese-name" lang="zh-Hant">張昀棠</p>
             </div>
+            <p className="hero-role">Computer science &amp; systems research</p>
+            <div className="hero-affiliations" aria-label="Affiliations">
+              <p><strong>NCKU</strong><span>Computer Science and Information Engineering</span></p>
+              <p><strong>NTU</strong><span>Research Assistant · Secure System Lab</span></p>
+            </div>
+            <nav className="hero-contact" aria-label="Contact links">
+              <a href="mailto:candrew9213@gmail.com">Email ↗</a>
+              <a href="https://github.com/Andrewtangtang" target="_blank" rel="noreferrer">GitHub ↗</a>
+              <a href="https://www.linkedin.com/in/yun-tang-chang/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+              <a href="/cv.pdf" target="_blank">CV ↗</a>
+            </nav>
+          </aside>
+          <div className="hero-content reveal reveal-late">
             <div className="about-placeholder" aria-label="About Andrew">
               <div className="about-placeholder-label">
                 <span>About</span>
